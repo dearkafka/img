@@ -65,7 +65,7 @@ def _align_face(img, face_landmarks, idx=0, output_size=512, transform_size=2048
         # Choose oriented crop rectangle.
         x = eye_to_eye - np.flipud(eye_to_mouth) * [-1, 1]
         x /= np.hypot(*x)
-        x *= max(np.hypot(*eye_to_eye) * 2.0, np.hypot(*eye_to_mouth) * 1.8)
+        x *= max(np.hypot(*eye_to_eye) * 1.5, np.hypot(*eye_to_mouth) * 1.4)
         y = np.flipud(x) * [-1, 1]
         c = eye_avg + eye_to_mouth * 0.1
         quad = np.stack([c - x - y, c - x + y, c + x + y, c + x - y])
